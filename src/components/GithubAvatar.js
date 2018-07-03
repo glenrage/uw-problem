@@ -5,7 +5,8 @@ class GithubAvatar extends Component {
   state = {
     followedUsers: {
       followers: []
-    }
+    },
+    loading: false
   };
 
   renderAvatars = () => {
@@ -36,17 +37,30 @@ class GithubAvatar extends Component {
 
   handleHover = async el => {
     if (el.login[0] === 'a') {
-      axios
+      console.log('Username startd with A');
+      this.setState({ loading: true });
+      await axios
         .post('http://localhost:3000/api/followers', { el })
-        .then(data => this.setState({ followedUsers: data.data }));
+        .then(data =>
+          this.setState({
+            followedUsers: data.data,
+            loading: false
+          })
+        );
     }
   };
   render() {
     console.log(this.state);
     return (
-      <div className="git-container">
-        {this.renderAvatars()}
-        {this.renderList()}
+      <div className="row-row">
+        <div className="column-big">
+          <div className="git-box">{this.renderAvatars()}</div>
+        </div>
+        <div className="column-small">
+          <h5>Followers List</h5>
+          {this.state.loading === true && <div className="loader">Loading</div>}
+          <div className="list">{this.renderList()}</div>
+        </div>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GithubAvatar from './components/GithubAvatar';
 import axios from 'axios';
 import './App.css';
+import './loader.css';
 
 class App extends Component {
   state = {
@@ -24,13 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
-          <div className="row">
-            <div className="avatar-gallery">
-              <GithubAvatar git={this.state.githubData} />
-            </div>
-          </div>
-        </div>
+        <GithubAvatar git={this.state.githubData} />
       </div>
     );
   }

@@ -1,7 +1,15 @@
 .card {
-  height: 140px;
-  width: 140px;
+  height: 130px;
+  width: 130px;
   margin: 1px;
+}
+
+ul {
+  list-style: none;
+}
+
+h5 {
+  text-align: center;
 }
 
 .card-img-top {
@@ -9,20 +17,34 @@
   height: 80%;
 }
 
-.avatar-gallery {
-  display: flex;
-  flex-flow: wrap;
-  /* justify-content: center; */
-  flex-wrap: wrap;
-}
-
 .login-name {
   text-align: center;
 }
 
-.git-container {
+.git-box {
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+}
+
+.row-row {
+  display: flex;
+}
+
+.column-big {
+  flex: 80%;
+  background-color: #4b2e83;
+  padding: 10px;
+}
+
+.column-small {
+  flex: 20%;
+  background-color: #c6a556;
+  padding: 10px;
+  line-height: 3px;
+}
+
+.column-small h5 {
+  margin-bottom: 25px;
 }
